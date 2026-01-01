@@ -1,3 +1,4 @@
+// admin.middleware.js
 const User = require("../models/user");
 
 const adminCheck = async (req, res, next) => {

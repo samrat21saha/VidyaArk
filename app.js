@@ -1,3 +1,4 @@
+// app.js
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -11,11 +12,18 @@ const app = express();
 // ================= MIDDLEWARES =================
 app.use(
   cors({
-    origin: "*", // later you can restrict this to frontend domain
+    origin: [
+      "http://localhost:5173",
+      "https://zesty-narwhal-3308aa.netlify.app",
+    ],
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
+
+// app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
